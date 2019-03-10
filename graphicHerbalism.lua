@@ -252,8 +252,7 @@ function GraphicHerbalism.OnObjectActivate(plantRefId, pid, uniqueIndex)
 	pickData[cellDescription][uniqueIndex].daysPassed = WorldInstance.data.time.daysPassed
 	pickData[cellDescription][uniqueIndex].hour = math.floor(WorldInstance.data.time.hour)
 	
-	local splitIndex = uniqueIndex:split("-")
-	logicHandler.RunConsoleCommandOnObject("Disable", cellDescription, plantRefId, splitIndex[1], splitIndex[2])
+	logicHandler.RunConsoleCommandOnObject(pid, "Disable", cellDescription, uniqueIndex, true)
 	
 	InventoryManagement(plantRefId, pid)
 	
